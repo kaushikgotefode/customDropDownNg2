@@ -1,3 +1,11 @@
-<h1>
-  {{title}}
-</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <app-custom-drop-down [listItems]="dropDownData" [addNewItem]=true [search]=true></app-custom-drop-down>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <app-custom-drop-down [listItems]="dropDownData" ></app-custom-drop-down>
+    </div>
+  </div>
+</div>

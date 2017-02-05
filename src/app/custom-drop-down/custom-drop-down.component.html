@@ -1,0 +1,80 @@
+<!--   <div class="dropdownView" (click)="toggleDropdownFunction()">
+    <input type="selectedValue" name="" [value]="selected.value" />
+  </div> -->
+<h2>Smart Dropdown</h2>
+<div class="row">
+  <div class="col-xs-12 col-sm-12">
+    <div id="imaginary_container" (click)="toggleDropdownFunction()">
+      <div class="input-group stylish-input-group">
+        <input type="text" class="form-control" placeholder="Select item" [value]="selected">
+        <span class="input-group-addon">
+                        <button type="submit">
+                            <span class="glyphicon plicons glyphicon-chevron-down"></span>
+        </button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row showhide" *ngIf="toggleDropdown">
+  <div class="col-xs-12 col-sm-12 bxshw">
+    <div id="imaginary_container" *ngIf="addNewItem">
+      <div class="input-group stylish-input-group rebx">
+        <input type="text" class="form-control ndboxG" placeholder="Add New Item" [(ngModel)]="newValue">
+        <span class="input-group-addon nedd rebx">
+                        <button type="submit" (click)="addNewValue(newValue)">
+                            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+        </span>
+      </div>
+    </div>
+    <div id="imaginary_container" *ngIf="search">
+      <div class="input-group stylish-input-group rebx">
+        <input type="text" class="form-control ndboxG" placeholder="Search" [(ngModel)]="searchData">
+        <span class="input-group-addon nedd rebx">
+                        <button type="submit" >
+                            <span class="glyphicon glyphicon-search"></span>
+        </button>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12">
+        <div class="showliSt">
+          <ul>
+            <li *ngFor="let listItem of listItems| searchPipe: searchData ; let i = index; " value={{listItem.key}}>
+              <!-- <input type="checkbox" id="{{i}}" /> -->
+              <!--                     <div class="checkbox checkbox-danger">
+                        <input id="checkbox6" type="checkbox" [(ngModel)]="listItem.checked" id="{{i}}" >
+                    </div> -->
+              <div class="checkbox list-inline">
+                <label style="font-size: 1.5em" class="list-inline">
+                  <input type="checkbox" value="" id="checkbox6" type="checkbox" [(ngModel)]="listItem.checked" id="{{i}}" (click)="selectListItem($event,listItem)">
+                  <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                </label>
+              </div>
+              <img class="custimgs" src="{{listItem.img}}" alt="test" />
+              <label attr.for="{{i}}">{{listItem.value}}</label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- <ul> -->
+    <!--       <li *ngIf="addNewItem">
+        <input type="text" name="addNewItem" class="form-control" [(ngModel)]="newValue">
+        <button (click)="addNewValue(newValue)">Add</button>
+      </li> -->
+    <!-- <li *ngIf="search">
+        <input type="text" name="search dropdown" class="form-control" [(ngModel)]="searchData"> -->
+    <!-- <app-search-box (update)="term=$event"></app-search-box> -->
+    <!-- </li> -->
+    <!-- <app-drop-down-list [listItems]="listItems" [term]=term></app-drop-down-list> -->
+    <!--   <li *ngFor="let listItem of listItems| searchPipe: searchData ; let i = index; " value={{listItem.key}} (click)="selectListItem(listItem)">
+          <input type="checkbox" id="{{i}}" />
+          <label attr.for="{{i}}">{{listItem.value}}</label>
+        </li> -->
+    <!-- </ul> -->
+  </div>
+</div>
+
